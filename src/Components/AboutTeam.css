@@ -1,0 +1,262 @@
+/* About Team Section */
+
+.about-team {
+  position: relative;
+  width: 100vw;
+  height: 100vh; /* locked viewport height */
+  background-color: #fff8f6;
+  background-image: radial-gradient(circle, rgba(255, 157, 125, 0.1) 1px, transparent 1px);
+  background-size: 6px 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 80px;
+  box-sizing: border-box;
+  overflow: hidden; /* no vertical scroll */
+}
+
+/* ---------- Note Section ---------- */
+.about-note {
+  position: absolute;
+  top: 10%;
+  left: 5%;
+  width: 340px;
+  background: #fffce8;
+  transform: rotate(-10deg);
+  padding: 20px 25px;
+  font-family: "Halant", serif;
+  font-size: 16px;
+  line-height: 24px;
+  color: #252729;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  z-index: 2;
+}
+
+/* ---------- Decorative Element ---------- */
+.india-gate {
+  position: absolute;
+  bottom: 5%;
+  left: 5%;
+  width: 280px;
+  opacity: 0.9;
+  z-index: 1;
+}
+
+/* ---------- Team Layout ---------- */
+.team-layout {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 340px;
+}
+
+.team-graphic {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  margin-top: 160px;
+  transform-origin: center;
+  transition: transform 0.3s ease;
+}
+
+.team-image {
+  width: 460px;
+  height: auto;
+  z-index: 2;
+}
+
+/* ---------- Labels ---------- */
+.film-makers,
+.branding-experts,
+.art-curators {
+  position: absolute;
+  font-family: "Island Moments", cursive;
+  font-size: 36px;
+  color: #0f3255;
+  white-space: nowrap;
+  z-index: 3;
+}
+
+.film-makers { top: 5px; right: 480px; }
+.branding-experts { bottom: -25px; left: -230px; }
+.art-curators { top: -110px; right: -160px; }
+
+/* ---------- Arrows ---------- */
+.arrow-film,
+.arrow-brand,
+.arrow-art {
+  position: absolute;
+  width: 100px;
+  height: auto;
+  opacity: 0.85;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.arrow-film { top: -40px; right: 410px; transform: rotate(10deg); }
+.arrow-brand { bottom: -35px; left: -45px; transform: rotate(-30deg); }
+.arrow-art { top: -110px; right: -45px; transform: rotate(50deg); }
+
+/* ---------- CTA ---------- */
+.cta {
+  margin-top: 50px;
+  text-align: center;
+}
+
+.cta p {
+  font-family: "Halant", serif;
+  font-size: 24px;
+  color: #0f3255;
+  margin-bottom: 10px;
+}
+
+.cta button {
+  background: #f15d2b;
+  color: #fff;
+  border: none;
+  border-radius: 100px;
+  padding: 10px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.cta button:hover {
+  background: #d94e24;
+}
+
+/* ==========================================
+   RESPONSIVENESS
+   ========================================== */
+
+/* ---------- Laptops & wide tablets ---------- */
+@media (max-width: 1200px) {
+  .about-team { padding: 50px 60px; }
+
+  .team-graphic {
+    transform: scale(0.85);
+    margin-top: 120px;
+  }
+
+  .about-note {
+    width: 300px;
+    transform: scale(0.85) rotate(-8deg);
+  }
+
+  .cta p { font-size: 22px; }
+}
+
+/* ---------- Tablets ---------- */
+@media (max-width: 992px) {
+  .about-team {
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 40px 30px;
+    height: 100vh; /* locked viewport */
+  }
+
+  .team-layout { margin-left: 0; }
+
+  .about-note {
+    position: static;
+    width: 75%;
+    transform: scale(0.8) rotate(-5deg);
+    margin-bottom: 10px;
+    text-align: center;
+  }
+
+  .team-graphic {
+    transform: scale(0.7);
+    margin: 0;
+  }
+
+  .india-gate { display: none; }
+
+  .cta {
+    transform: scale(0.85);
+    margin: 0;
+  }
+
+  .cta p {
+    font-size: 18px;
+    margin-bottom: 8px;
+  }
+
+  .cta button {
+    font-size: 15px;
+    padding: 8px 22px;
+  }
+}
+
+/* ---------- Large phones / small tablets ---------- */
+@media (max-width: 768px) {
+  .about-team {
+    height: 100vh;
+    padding: 20px 20px;
+    justify-content: space-evenly;
+  }
+
+  .about-note {
+    width: 80%;
+    transform: scale(0.75) rotate(-3deg);
+    font-size: 15px;
+  }
+
+  .team-graphic { transform: scale(0.6); }
+
+  .cta { transform: scale(0.8); }
+  .cta p { font-size: 17px; }
+  .cta button { font-size: 14px; }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 580px) {
+  .about-team {
+    height: 100vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 20px;
+  }
+
+  .about-note {
+    width: 85%;
+    transform: scale(0.7) rotate(-2deg);
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .team-graphic {
+    transform: scale(0.5);
+    margin: 0;
+  }
+
+  .cta {
+    transform: scale(0.75);
+    margin: 0;
+  }
+
+  .cta p { font-size: 15px; }
+  .cta button { font-size: 13px; padding: 8px 20px; }
+}
+
+/* ---------- Small Phones ---------- */
+@media (max-width: 420px) {
+  .about-team {
+    height: 100vh;
+    padding: 20px 10px;
+  }
+
+  .about-note {
+    width: 90%;
+    transform: scale(0.6) rotate(-2deg);
+    font-size: 13px;
+  }
+
+  .team-graphic { transform: scale(0.45); }
+
+  .cta { transform: scale(0.7); }
+  .cta p { font-size: 14px; }
+  .cta button { font-size: 12px; padding: 7px 18px; }
+}

@@ -1,0 +1,90 @@
+/* VARNAN SLIDE LAYOUT */
+
+/* ---------- BASE DOCUMENT SETUP ---------- */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent vertical scroll */
+  background-color: #fff8f6;
+  scroll-behavior: smooth;
+  overscroll-behavior-x: contain; /* Prevent accidental sideways bounce */
+  touch-action: pan-x; /* Only horizontal touch scroll allowed */
+}
+
+/* ---------- SLIDE WRAPPER ---------- */
+.horizontal-scroll {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: 100vh;
+  overflow-x: auto; /* Scroll only sideways */
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory; /* Smooth slide snapping */
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none; /* Hide scrollbar in Firefox */
+  overscroll-behavior-x: none; /* Disable overscroll bounce */
+}
+
+/* Each slide (section) */
+.horizontal-scroll > section {
+  flex: 0 0 100vw; /* Each section fills full viewport width */
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  scroll-snap-align: start;
+  transition: transform 0.35s ease-in-out; /* Smooth scaling during resize */
+}
+
+/* ---------- SCROLLBAR (Hidden) ---------- */
+.horizontal-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+/* ---------- GLOBAL BOX-SIZING ---------- */
+section {
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+   ========================================== */
+
+/* ---------- Laptops / Medium Screens ---------- */
+@media (max-width: 1080px) {
+  .horizontal-scroll > section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* ---------- Tablets / Small Laptops ---------- */
+@media (max-width: 720px) {
+  .horizontal-scroll {
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-x: none;
+  }
+
+  .horizontal-scroll > section {
+    flex: 0 0 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 600px) {
+  html,
+  body {
+    touch-action: pan-x; /* Keeps horizontal-only gesture */
+  }
+
+  .horizontal-scroll {
+    scroll-behavior: smooth;
+    overscroll-behavior-x: none;
+  }
+}
